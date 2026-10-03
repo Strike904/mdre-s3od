@@ -163,10 +163,6 @@ a{color:inherit;text-decoration:none}
 .section-count{font-size:12px;font-weight:800;color:var(--gold);background:rgba(255,210,74,.12);padding:5px 14px;border-radius:var(--r-full);border:1px solid rgba(255,210,74,.28)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:20px}
 .grid.list{grid-template-columns:1fr;gap:12px}
-
-/* ============================================================
-   Card
-   ============================================================ */
 .card{position:relative;display:flex;flex-direction:column;background:var(--bg-2);border:1px solid var(--ln);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--card-sh);transition:all var(--t);animation:cardRise .55s cubic-bezier(.2,.9,.3,1) both;cursor:pointer}
 @keyframes cardRise{from{opacity:0;transform:translateY(24px) scale(.98)}}
 .card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:var(--hover-sh)}
@@ -202,27 +198,12 @@ a{color:inherit;text-decoration:none}
 .card-dlbtn:active{transform:scale(.97)}
 .card-dlbtn svg{transition:transform var(--t-fast)}
 .card-dlbtn:hover svg{transform:translateY(2px)}
-
-/* 🖼️ زر معاينة الكلاسات (بدل التحميل) */
-.card-viewbtn{
-  flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  background:linear-gradient(135deg,var(--sky),#2d7dd6);
-  color:#fff;border-radius:12px;padding:12px;
-  font-weight:900;font-size:14px;
-  position:relative;overflow:hidden;
-  transition:all var(--t);
-  box-shadow:0 8px 20px -8px var(--sky);
-}
-.card-viewbtn::before{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(135deg,#2d7dd6,var(--sky));
-  opacity:0;transition:opacity var(--t);
-}
+.card-viewbtn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--sky),#2d7dd6);color:#fff;border-radius:12px;padding:12px;font-weight:900;font-size:14px;position:relative;overflow:hidden;transition:all var(--t);box-shadow:0 8px 20px -8px var(--sky)}
+.card-viewbtn::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#2d7dd6,var(--sky));opacity:0;transition:opacity var(--t)}
 .card-viewbtn > *{position:relative;z-index:1}
 .card-viewbtn:hover::before{opacity:1}
 .card-viewbtn:hover{transform:translateY(-1px);box-shadow:0 14px 28px -10px var(--sky)}
 .card-viewbtn:active{transform:scale(.97)}
-
 .grid.list .card{flex-direction:row;align-items:stretch;border-radius:var(--r)}
 .grid.list .card:hover{transform:translateY(-3px)}
 .grid.list .card-thumb{width:180px;height:auto;aspect-ratio:auto;flex:none}
@@ -262,10 +243,6 @@ a{color:inherit;text-decoration:none}
 .social-btn{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--ln);background:var(--bg-2);color:var(--tx-2);transition:all var(--t)}
 .social-btn:hover{transform:translateY(-3px) scale(1.05);color:#07040f;border-color:transparent;background:linear-gradient(135deg,var(--gold),var(--gold-2));box-shadow:0 14px 28px -12px var(--gold)}
 .social-btn.discord:hover{background:linear-gradient(135deg,#5865f2,#4752c4);color:#fff}
-
-/* ============================================================
-   Dialogs
-   ============================================================ */
 dialog{width:min(720px, 95vw);padding:0;border:1px solid var(--ln);border-radius:var(--r-xl);background:var(--bg-2);color:var(--tx);overflow:hidden;box-shadow:0 60px 120px -40px rgba(0,0,0,.95);max-height:92vh}
 dialog[open]{animation:dlgIn .4s cubic-bezier(.2,.9,.3,1.2)}
 @keyframes dlgIn{from{opacity:0;transform:translateY(30px) scale(.94)}}
@@ -337,57 +314,18 @@ dialog::backdrop{background:rgba(5,3,15,.8);backdrop-filter:blur(10px);-webkit-b
 .fab-top{position:fixed;inset-inline-start:24px;bottom:calc(26px + var(--sb));z-index:80;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#07040f;box-shadow:0 20px 40px -14px var(--gold);opacity:0;pointer-events:none;transform:translateY(20px) scale(.85);transition:all var(--t)}
 .fab-top.on{opacity:1;pointer-events:auto;transform:none}
 .fab-top:hover{transform:translateY(-4px) scale(1.06);box-shadow:0 26px 50px -16px var(--gold)}
-
-/* ============================================================
-   Image Lightbox (معاينة الصورة للكلاسات)
-   ============================================================ */
-.lightbox{
-  width:min(1200px, 96vw);padding:0;
-  border:1px solid var(--ln);border-radius:var(--r-xl);
-  background:#0a0618;color:var(--tx);
-  overflow:hidden;box-shadow:0 60px 120px -40px rgba(0,0,0,.95);
-  max-height:95vh;
-}
+.lightbox{width:min(1200px, 96vw);padding:0;border:1px solid var(--ln);border-radius:var(--r-xl);background:#0a0618;color:var(--tx);overflow:hidden;box-shadow:0 60px 120px -40px rgba(0,0,0,.95);max-height:95vh}
 .lightbox[open]{animation:dlgIn .4s cubic-bezier(.2,.9,.3,1.2)}
 .lightbox::backdrop{background:rgba(0,0,0,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
 .lightbox-inner{position:relative;display:flex;flex-direction:column;max-height:95vh}
-.lightbox-close{
-  position:absolute;top:16px;inset-inline-end:16px;z-index:10;
-  width:44px;height:44px;border-radius:50%;
-  display:grid;place-items:center;
-  background:rgba(7,4,15,.75);
-  backdrop-filter:blur(12px);
-  border:1px solid rgba(255,210,74,.35);
-  color:var(--gold);
-  transition:all var(--t-fast);
-  cursor:pointer;
-}
+.lightbox-close{position:absolute;top:16px;inset-inline-end:16px;z-index:10;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(7,4,15,.75);backdrop-filter:blur(12px);border:1px solid rgba(255,210,74,.35);color:var(--gold);transition:all var(--t-fast);cursor:pointer}
 .lightbox-close:hover{background:var(--gold);transform:rotate(90deg);border-color:transparent;color:#07040f}
-.lightbox-img-wrap{
-  flex:1;display:flex;align-items:center;justify-content:center;
-  padding:20px;overflow:hidden;
-  background:radial-gradient(circle at 50% 50%, #1a0f3d 0%, #07040f 100%);
-  min-height:0;
-}
-.lightbox-img{
-  max-width:100%;max-height:calc(95vh - 100px);
-  object-fit:contain;border-radius:14px;
-  box-shadow:0 40px 80px -20px rgba(0,0,0,.9), 0 0 0 1px rgba(255,210,74,.2);
-  user-select:none;-webkit-user-drag:none;
-  pointer-events:none;
-}
-.lightbox-caption{
-  padding:14px 22px;
-  background:var(--bg-2);border-top:1px solid var(--ln);
-  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
-}
+.lightbox-img-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:20px;overflow:hidden;background:radial-gradient(circle at 50% 50%, #1a0f3d 0%, #07040f 100%);min-height:0}
+.lightbox-img{max-width:100%;max-height:calc(95vh - 100px);object-fit:contain;border-radius:14px;box-shadow:0 40px 80px -20px rgba(0,0,0,.9), 0 0 0 1px rgba(255,210,74,.2);user-select:none;-webkit-user-drag:none;pointer-events:none}
+.lightbox-caption{padding:14px 22px;background:var(--bg-2);border-top:1px solid var(--ln);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .lightbox-caption h4{margin:0;font-size:16px;font-weight:800;color:var(--tx)}
 .lightbox-caption small{color:var(--tx-3);font-size:12px;font-weight:600}
-@media (max-width:768px){
-  .lightbox{width:96vw}
-  .lightbox-img{max-height:calc(95vh - 80px)}
-  .lightbox-caption{padding:10px 16px}
-}
+@media (max-width:768px){.lightbox{width:96vw}.lightbox-img{max-height:calc(95vh - 80px)}.lightbox-caption{padding:10px 16px}}
 @media (prefers-reduced-motion:no-preference){
   .hero-content > *{animation:heroIn .9s cubic-bezier(.2,.9,.3,1) both}
   .hero-content > *:nth-child(1){animation-delay:.05s}
@@ -398,15 +336,8 @@ dialog::backdrop{background:rgba(5,3,15,.8);backdrop-filter:blur(10px);-webkit-b
   @keyframes heroIn{from{opacity:0;transform:translateY(24px)}}
   .hero-visual{animation:heroIn 1s .3s cubic-bezier(.2,.9,.3,1) both}
 }
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
-}
-@media (max-width:1000px){
-  .hero-grid{grid-template-columns:1fr;gap:30px}
-  .hero-visual{height:420px}
-  .hero-logo-img{max-width:420px}
-  .hero-orb{width:360px;height:360px}
-}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;scroll-behavior:auto !important}}
+@media (max-width:1000px){.hero-grid{grid-template-columns:1fr;gap:30px}.hero-visual{height:420px}.hero-logo-img{max-width:420px}.hero-orb{width:360px;height:360px}}
 @media (max-width:768px){
   .wrap{padding-inline:16px}
   .header-inner{padding:6px 10px 6px 12px}
@@ -464,7 +395,6 @@ dialog::backdrop{background:rgba(5,3,15,.8);backdrop-filter:blur(10px);-webkit-b
 <div class="aurora"></div>
 <div id="progress"></div>
 
-<!-- Header -->
 <div class="header-wrap" id="header">
   <div class="wrap">
     <div class="header-inner">
@@ -491,7 +421,6 @@ dialog::backdrop{background:rgba(5,3,15,.8);backdrop-filter:blur(10px);-webkit-b
   </div>
 </div>
 
-<!-- Hero -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-grid">
@@ -532,14 +461,12 @@ dialog::backdrop{background:rgba(5,3,15,.8);backdrop-filter:blur(10px);-webkit-b
   </div>
 </section>
 
-<!-- Category Tabs -->
 <div class="tabs-section">
   <div class="wrap">
     <div class="tabs-scroll" id="tabs" role="tablist"></div>
   </div>
 </div>
 
-<!-- Main -->
 <main class="wrap" id="main">
   <div class="toolbar">
     <div class="filters" id="chips"></div>
@@ -563,7 +490,6 @@ dialog::backdrop{background:rgba(5,3,15,.8);backdrop-filter:blur(10px);-webkit-b
   <div id="content"></div>
 </main>
 
-<!-- Footer -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer-inner">
@@ -584,7 +510,6 @@ dialog::backdrop{background:rgba(5,3,15,.8);backdrop-filter:blur(10px);-webkit-b
   </div>
 </footer>
 
-<!-- Item dialog (للأقسام اللي فيها تحميل) -->
 <dialog id="dlg" aria-labelledby="dt">
   <div class="dlg-cover" id="dcover">
     <div class="dlg-cover-img" id="dcoverImg"></div>
@@ -620,14 +545,13 @@ dialog::backdrop{background:rgba(5,3,15,.8);backdrop-filter:blur(10px);-webkit-b
   </div>
 </dialog>
 
-<!-- 🖼️ Lightbox — معاينة صورة الكلاس (بدون تحميل) -->
 <dialog id="lightbox" class="lightbox" aria-labelledby="lbTitle">
   <div class="lightbox-inner">
     <button class="lightbox-close" type="button" id="lbClose" aria-label="إغلاق">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
     <div class="lightbox-img-wrap">
-      <img id="lbImg" class="lightbox-img" alt="معاينة الكلاس" draggable="false">
+      <img id="lbImg" class="lightbox-img" alt="معاينة" draggable="false">
     </div>
     <div class="lightbox-caption">
       <div>
@@ -638,7 +562,6 @@ dialog::backdrop{background:rgba(5,3,15,.8);backdrop-filter:blur(10px);-webkit-b
   </div>
 </dialog>
 
-<!-- Shortcuts dialog -->
 <dialog id="shortcutsDlg" aria-labelledby="st">
   <div class="dlg-head" style="padding-top:26px">
     <h3 id="st">اختصارات لوحة المفاتيح</h3>
@@ -715,21 +638,21 @@ const I = (id, c, t, d, s, k, days, hits, rating, ratings, author, tags, feature
   l: links
 });
 
-// 🎯 القسم الذي لا يسمح بالتحميل (صور فقط)
-const IMAGE_ONLY_CATS = ['modern3'];
+/* 🎯 الأقسام اللي تكون صور فقط (بدون تحميل) */
+const IMAGE_ONLY_CATS = ['modern3', 'camera', 'gameset'];
 
 const ITEMS = [
   /* ===== إعدادات تصوير ===== */
   I('cam1','camera','إعدادات تصوير','إعدادات جاهزة.','0.35 MB','! اعدادات تصوير ',1,0,4.8,120,'MDRE_S3OD',['تصوير','اعدادات'],true,
-    '',
-    L('https://www.mediafire.com/file/xxxxxxxx/cam1.zip/file','https://mega.nz/file/WRtxkJYK#0qa1LAbG1LOb6EQ6z_iq_dN5cMSUdtfGYvND4uJq06I','https://drive.google.com/file/d/xxxxxxxx/view')),
+    'https://media.discordapp.net/attachments/1555698765296308324/1555943777057902723/FJX.jpg?backend=b2&ex=6ac25d10&is=6ac10b90&hm=5b1b99b7dd07885979714e516489990c25b676a1e34d8287d6525497263e0873&=&format=webp&width=1536&height=864',
+    L('#','#','#')),
 
   /* ===== فلاتر أدوبي ===== */
   I('adobe1','adobe','فلاتر أدوبي','مجموعة فلاتر جاهزة للأدوبي.','50 MB','! فلاتر ادوبي ',2,0,4.9,180,'MDRE_S3OD',['أدوبي','فلاتر'],true,
     '',
     L('https://www.mediafire.com/file/yyyyyyyy/adobe1.zip/file','https://mega.nz/file/bRU3XbSI#m825I0UuL1YoGfz0VX8k-etLxtuFX4GSDVKMyXJ1CJU','https://drive.google.com/file/d/yyyyyyyy/view')),
 
-  /* ===== كلاسات مودرن 3 — صور فقط، بدون تحميل ===== */
+  /* ===== كلاسات مودرن 3 ===== */
   I('mod3_1','modern3','كلاس FJX','كلاس احترافي بألوان مميزة.','25 MB','كلاسات',1,0,4.9,250,'MDRE_S3OD',['مودرن','كلاس'],true,
     'https://media.discordapp.net/attachments/1555698765296308324/1555943777057902723/FJX.jpg?backend=b2&ex=6ac25d10&is=6ac10b90&hm=5b1b99b7dd07885979714e516489990c25b676a1e34d8287d6525497263e0873&=&format=webp&width=1536&height=864',
     L('#','#','#')),
@@ -761,8 +684,8 @@ const ITEMS = [
 
   /* ===== إعدادات اللعبة ===== */
   I('game1','gameset','إعدادات اللعبة','السنس + الوان اللعبه.','1 MB','سنس و الوان',1,0,4.9,350,'MDRE_S3OD',['','اعدادات اللعبه'],true,
-    '',
-    L('https://www.mediafire.com/file/bbbbbbbb/game1.zip/file','https://mega.nz/file/mR1hgAaZ#AG7G-cXkmJ63eqz3VhplbaIhnSSetNfkFY8jvrOx8VY','https://drive.google.com/file/d/bbbbbbbb/view')),
+    'https://media.discordapp.net/attachments/1555698765296308324/1555943772871983225/SUPERI_46.jpg?backend=b2&ex=6ac25d0f&is=6ac10b8f&hm=1df8c88e4f7f2b8510ef4085533730f79988b8043d1016fc737040a55c2b3a8f&=&format=webp&width=1536&height=864',
+    L('#','#','#')),
 ];
 
 const CATMAP = Object.fromEntries(CATS.map(c => [c.id, c]));
@@ -775,7 +698,6 @@ const state = {
   limit: 12
 };
 
-// هل هذا العنصر صورة فقط؟
 function isImageOnly(i){ return IMAGE_ONLY_CATS.includes(i.c); }
 
 let toastTimer;
@@ -913,12 +835,10 @@ function buildCard(i, idx){
   if (isNew) flags.push('<span class="flag flag-new">جديد</span>');
   if (i.featured) flags.push('<span class="flag flag-feat">مميز</span>');
 
-  // زر مختلف: تحميل أو معاينة
   const actionBtn = imageOnly
     ? `<button class="card-viewbtn" type="button">${IC.eye} معاينة</button>`
     : `<button class="card-dlbtn" type="button">${IC.dl} تحميل</button>`;
 
-  // meta مختلف: في حالة الصور فقط ما نعرض عدد الروابط
   const metaHTML = imageOnly
     ? `<span class="meta-pill">${IC.hdd}${esc(i.s)}</span>`
     : `<span class="meta-pill">${IC.hdd}${esc(i.s)}</span>
@@ -1056,9 +976,6 @@ function buildEmpty(){
   return box;
 }
 
-/* ============================================================
-   Item Dialog (للأقسام اللي فيها تحميل)
-   ============================================================ */
 const dlg = $('#dlg');
 let currentItem = null;
 
@@ -1180,9 +1097,6 @@ $('#dShare').onclick = async () => {
 $('#dclose').onclick = () => dlg.close();
 dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
 
-/* ============================================================
-   🖼️ Lightbox — معاينة صور الكلاسات (بدون تحميل)
-   ============================================================ */
 const lightbox = $('#lightbox');
 const lbImg = $('#lbImg');
 const lbTitle = $('#lbTitle');
@@ -1200,13 +1114,9 @@ $('#lbClose').onclick = () => lightbox.close();
 lightbox.addEventListener('click', e => {
   if (e.target === lightbox || e.target.classList.contains('lightbox-img-wrap')) lightbox.close();
 });
-// منع سحب الصورة / السيف
 lbImg.addEventListener('dragstart', e => e.preventDefault());
 lbImg.addEventListener('contextmenu', e => e.preventDefault());
 
-/* ============================================================
-   Search
-   ============================================================ */
 const qInput = $('#q');
 const searchBox = $('#searchBox');
 const suggestEl = $('#suggest');
